@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  pritunl:
+    container_name: pritunl
+    image: 'alencarjr/pritunl'
+    privileged: true
+    ports:
+      - '80:80'
+      - '443:443'
+      - '1194:1194'
+      - '27017:27017'
+    volumes:
+      - 'pritunl_data:/var/lib/pritunl'
+      - 'pritunl_db:/var/lib/mongodb'
+
+volumes:
+  pritunl_data:
+    driver: local
+  pritunl_db:
+    driver: local
