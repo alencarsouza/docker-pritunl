@@ -23,6 +23,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 9DA31620334BD75D9D
     apt-get -y -q autoremove &&\
     rm -rf /tmp/*
 
+COPY limits.conf /etc/security/limits.conf
+
 ADD start-pritunl /bin/start-pritunl
 
 EXPOSE 80
